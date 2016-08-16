@@ -59,6 +59,8 @@ public class MENU extends javax.swing.JFrame {
             .addGap(0, 497, Short.MAX_VALUE)
         );
 
+        jMenuBar1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+
         jMenuClientes.setText("CLIENTES");
 
         jMenuItemRegistrar.setText("REGISTRAR");
