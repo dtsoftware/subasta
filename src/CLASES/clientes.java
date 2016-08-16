@@ -15,12 +15,35 @@ import javax.swing.JOptionPane;
 public class clientes {
     Connection conexcion;
     PreparedStatement guardar;
-    
+    conexcion conex = new conexcion();
     //CONSTRUCTOR DE CLASE
     public clientes(){}
     
     //este metodo guarda los datos del cliente - vendedor - comprador
-    public void guardar(){}
+    public void guardar(int idclientes, String cedula, String nombre, String apellido, String direccion, String telefono, String correo, String status, String credito, String fechacreacion, String fechamodificacion, String idusuario){
+        
+     try{
+     conex.conectar();
+     guardar=conex.con.prepareStatement("INSERT INTO clientes (idclientes,cedula, nombre, apellido,direccion,telefono,correo,status,credito,fechacreacion,fechamodificacion,idusuario) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
+        guardar.setInt(1, idclientes);
+        guardar.setString(2, cedula);
+        guardar.setString(3, nombre);
+        guardar.setString(4, apellido);
+        guardar.setString(5, direccion);
+        guardar.setString(6, telefono);
+        guardar.setString(7, correo);
+        guardar.setString(8, status);
+        guardar.setString(9, credito);
+        guardar.setString(10, fechacreacion);
+        guardar.setString(11, fechamodificacion);
+        guardar.setString(12, idusuario);
+        guardar.execute();
+        JOptionPane.showMessageDialog(null, "Registro Guardado Satisfactoriamente");
+     } catch (SQLException ex){
+     JOptionPane.showMessageDialog(null,"El Registro No Se Logro Realizar Error:" +ex);
+     }  
+    
+    }
     
     //este metodo actualiza los datos cliente - vendedor - comprador
     public void actualizar(){}

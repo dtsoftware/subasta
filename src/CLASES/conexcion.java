@@ -16,7 +16,7 @@ import java.sql.SQLException;
 public class conexcion {
 private static String username="root";
 private static String password="denver";
-private static String database="vivero";
+private static String database="subasta";
 private static String url="jdbc:mysql://localhost/"+database;
 public Connection con = null;
     
@@ -33,11 +33,9 @@ public Connection con = null;
           //  JOptionPane.showMessageDialog(null, "Conexcion Exitosa");
        // }            
             
-        } catch (SQLException ex){
+        } catch (SQLException | ClassNotFoundException ex){
         JOptionPane.showMessageDialog(null,"Error de Conexcion" +ex);
         
-        }catch (ClassNotFoundException e){
-        JOptionPane.showMessageDialog(null,"Error de Conexcion" +e);
         }
     return con;
     }

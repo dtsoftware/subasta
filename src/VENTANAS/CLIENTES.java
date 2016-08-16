@@ -5,12 +5,14 @@
  */
 package VENTANAS;
 import java.util.Date;
+import entidades.eclientes;
+import java.util.Calendar;
 /**
  *
  * @author Tserng
  */
 public class CLIENTES extends javax.swing.JFrame {
-
+String dia,mes,year,fecha;
     /**
      * Creates new form CLIENTES
      */
@@ -289,7 +291,32 @@ public class CLIENTES extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNuevoActionPerformed
-        // TODO add your handling code here:
+        //instancio la entidad clientes los metodos get and set 
+        eclientes eclientes = new eclientes();
+       //asigno el valor de la caja de texto al set de eclientes
+        eclientes.setIdcliente(Integer.parseInt( this.jTextFieldCodigoCliente.getText()));
+        eclientes.setCedula( this.jTextFieldCodigoCliente.getText());
+        eclientes.setNombre(this.jTextFieldCodigoCliente.getText());
+        eclientes.setApellido(this.jTextFieldCodigoCliente.getText());
+        eclientes.setDireccion(this.jTextFieldCodigoCliente.getText());
+        eclientes.setTelefono(this.jTextFieldCodigoCliente.getText());
+        eclientes.setCorreo(this.jTextFieldCodigoCliente.getText());
+        eclientes.setStatus(this.jTextFieldCodigoCliente.getText());
+        eclientes.setCredito(this.jTextFieldCodigoCliente.getText());
+        
+        //-----obtener la fecha----------------------
+         dia = Integer.toString(this.jDateChooserFecha.getCalendar().get(Calendar.DAY_OF_MONTH));
+         mes = Integer.toString(this.jDateChooserFecha.getCalendar().get(Calendar.MONTH) + 1);
+         year = Integer.toString(this.jDateChooserFecha.getCalendar().get(Calendar.YEAR));
+         fecha = (dia + "-" + mes+ "-" + year);  
+        eclientes.setFechacreacion(fecha);
+        eclientes.setFechamodificacion(this.jTextFieldCodigoCliente.getText());
+       //falta agregar codigo de usuario mediante un logeo 
+        eclientes.setIdusuario("32");
+       //aqui asigno el contenido del eclientes a la caja de texto 
+       //this.jTextFieldCedula.setText(String.valueOf(eclientes.getIdcliente()));
+       //this.jTextFieldCedula.setText(eclientes.getFechacreacion());
+        
     }//GEN-LAST:event_jButtonNuevoActionPerformed
 
     /**
